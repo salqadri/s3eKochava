@@ -4,8 +4,8 @@ Kochava SDK for Marmalade
 ## Supported Platforms
  * Android
 
-## Integration
-Please follow the docs for Kochava integration, such as their instructions on modifying your Android manifest file.
+## Android Integration
+Please follow the Kochava docs for Android integration, in particular their instructions on adding the `install_referrer` receiver. You need to do this yourself as this extension does not know if you have any other existing `install_referrer` receivers (Android only allows one). This extension will already add the permissions required by Kochava, except for the optional `GET_ACCOUNTS` permission for email tracking. You will need to add that yourself if you want it.
 
 ## API usage
 
