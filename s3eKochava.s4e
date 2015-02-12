@@ -1,0 +1,57 @@
+include:
+// s3eKochava
+// Enable Kochava in Marmalade
+
+/**
+ * This extension allows the application to utilize the Kochava API
+ */
+
+functions:
+
+/**
+ * Call this in your application initialization
+ *
+ * @param appId		The Kochava App Id of the game for the current platform
+ */
+void s3eKochavaCreate(const char* appId) NULL no_assert run_on_os_thread
+
+/**
+ * API to track any post-install events
+ *
+ * @param eventName		The name of the event
+ * @param eventData		The value of the event as a String
+ */
+void s3eKochavaEvent(const char* eventName, const char* eventData) NULL no_assert run_on_os_thread
+
+/**
+ * API to track any post-install spatial events (i.e. with 3d coordinates)
+ *
+ * @param eventName		The name of the event
+ * @param x				The x coordinate
+ * @param y				The y coordinate
+ * @param z				The z coordinate
+ * @param eventData		The value of the event as a String
+ */
+void s3eKochavaEventSpatial(const char* eventName, int x, int y, int z, const char* eventData) NULL no_assert run_on_os_thread
+
+/**
+ * Pass deep link events to Kochava using this method.
+ *
+ * @param uri		The URI of the deep link
+ */
+void s3eKochavaDeepLinkEvent(const char* uri) NULL no_assert run_on_os_thread
+
+/**
+ * If you are having problems with your integration, you can enable debug logging to possibly gain some insight as to what the problem might be.
+ *
+ * @param value		The value to set EnableDebug to (by default it is false)
+ */
+void s3eKochavaEnableDebug(bool value) NULL no_assert run_on_os_thread
+
+/**
+ * By default, the Kochava SDK provides error messages to assist in debugging problems you might be having with integrating the SDK into your app.
+ * If you would like to turn these off, you can use this method
+ *
+ * @param value		The value to set SetErrorDebug to (by default it is true)
+ */
+void s3eKochavaSetErrorDebug(bool value) NULL no_assert run_on_os_thread
