@@ -11,6 +11,7 @@
 #include "TrackAndAd.h"
  
 KochavaTracker *kochavaTracker = nil;
+bool debug = false;
 
 s3eResult s3eKochavaInit_platform()
 {
@@ -30,7 +31,7 @@ void s3eKochavaCreate_platform(const char* appId)
 {
 	NSDictionary *initDict = [NSDictionary dictionaryWithObjectsAndKeys:
 	[NSString stringWithUTF8String:appId], @"kochavaAppId",
-	@"1", @"enableLogging", // optional - 0 is default
+	(debug)?@"1":@"0", @"enableLogging", // optional - 0 is default
 	nil];
 	kochavaTracker = [[KochavaTracker alloc] initKochavaWithParams:initDict];
 }
@@ -56,6 +57,7 @@ void s3eKochavaDeepLinkEvent_platform(const char* uri)
 
 void s3eKochavaEnableDebug_platform(bool value)
 {
+	debug = value;
 	[kochavaTracker enableConsoleLogging:(value)?YES:NO];
 }
 
